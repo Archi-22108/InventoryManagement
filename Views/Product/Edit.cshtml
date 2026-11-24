@@ -1,0 +1,52 @@
+﻿@model InventoryManagement.Models.Product
+
+@{
+    ViewBag.Title = "Edit Product";
+}
+
+<h2>Edit Product</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(m => m.ProductId)
+
+    <div>
+        @Html.LabelFor(m => m.ProductName)
+        <br />
+        @Html.TextBoxFor(m => m.ProductName, new { required = "required" })
+    </div>
+
+    <br />
+
+    <div>
+        @Html.LabelFor(m => m.Category)
+        <br />
+        @Html.TextBoxFor(m => m.Category, new { required = "required" })
+    </div>
+
+    <br />
+
+    <div>
+        @Html.LabelFor(m => m.Quantity)
+        <br />
+        @Html.TextBoxFor(m => m.Quantity,
+            new { type = "number", min = "0", required = "required" })
+    </div>
+
+    <br />
+
+    <div>
+        @Html.LabelFor(m => m.Price)
+        <br />
+        @Html.TextBoxFor(m => m.Price,
+            new { type = "number", min = "0", step = "0.01", required = "required" })
+    </div>
+
+    <br />
+
+    <input type="submit" value="Update Product" />
+}
+
+<br />
+
+@Html.ActionLink("Back to Product List", "Index")
